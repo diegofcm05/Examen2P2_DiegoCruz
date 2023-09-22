@@ -15,9 +15,12 @@ public class Album extends Lanzamiento{
     private ArrayList <Cancion> canciones = new ArrayList();
     private int cantidad;
 
-    public Album(String titulo, String fecha, int likes) {
-        super(titulo, fecha, likes);
+    
+    public Album(int cantidad, String titulo, String fecha) {
+        super(titulo, fecha);
+        this.cantidad = cantidad;
     }
+
 
     public Album() {
         super();

@@ -19,10 +19,9 @@ public class Lanzamiento {
 
     
     
-    public Lanzamiento(String titulo, String fecha, int likes) {
+    public Lanzamiento(String titulo, String fecha) {
         this.titulo = titulo;
         this.fecha = fecha;
-        this.likes = likes;
     }
     
     

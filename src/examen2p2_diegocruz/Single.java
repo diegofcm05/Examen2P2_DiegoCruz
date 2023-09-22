@@ -13,11 +13,17 @@ public class Single extends Lanzamiento {
     
     
     private Cancion canc;
-    
-    public Single(Cancion canc, String titulo, String fecha, int likes) {
-        super(titulo, fecha, likes);
+
+    public Single(Cancion canc, String titulo, String fecha) {
+        super(titulo, fecha);
         this.canc = canc;
     }
+
+    public Single(String titulo, String fecha) {
+        super(titulo, fecha);
+    }
+    
+    
     
     
 
