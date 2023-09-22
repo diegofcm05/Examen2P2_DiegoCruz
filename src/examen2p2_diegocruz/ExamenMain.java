@@ -4,6 +4,7 @@
  */
 package examen2p2_diegocruz;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -11,12 +12,18 @@ import javax.swing.JOptionPane;
  * @author dfcm9
  */
 public class ExamenMain extends javax.swing.JFrame {
+    
+    
+    ArrayList<Artista> artis = new ArrayList();
+    ArrayList<Cliente> clientes = new ArrayList();
+    ArrayList<ListaRep> listasrep = new ArrayList();
 
     /**
      * Creates new form ExamenMain
      */
     public ExamenMain() {
         initComponents();
+        
     }
 
     /**
@@ -44,13 +51,18 @@ public class ExamenMain extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         tf_contra = new javax.swing.JTextField();
         jb_createacc = new javax.swing.JButton();
+        JD_mainArtists = new javax.swing.JDialog();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel4 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        tf_unamelogin = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        tf_passlogin = new javax.swing.JTextField();
+        jb_ingresarsesion = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 51));
@@ -214,6 +226,61 @@ public class ExamenMain extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jPanel3.setBackground(new java.awt.Color(0, 102, 51));
+
+        jLabel10.setFont(new java.awt.Font("Bahnschrift", 0, 24)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Bienvenido Artista!");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 910, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 444, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("tab1", jPanel4);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 910, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(44, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout JD_mainArtistsLayout = new javax.swing.GroupLayout(JD_mainArtists.getContentPane());
+        JD_mainArtists.getContentPane().setLayout(JD_mainArtistsLayout);
+        JD_mainArtistsLayout.setHorizontalGroup(
+            JD_mainArtistsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JD_mainArtistsLayout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        JD_mainArtistsLayout.setVerticalGroup(
+            JD_mainArtistsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JD_mainArtistsLayout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
 
@@ -223,8 +290,8 @@ public class ExamenMain extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 102, 51));
         jLabel1.setText("Spotify");
 
-        jTextField1.setBackground(new java.awt.Color(102, 102, 102));
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
+        tf_unamelogin.setBackground(new java.awt.Color(102, 102, 102));
+        tf_unamelogin.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 51));
@@ -234,16 +301,21 @@ public class ExamenMain extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(0, 102, 51));
         jLabel3.setText("Contraseña");
 
-        jTextField2.setBackground(new java.awt.Color(102, 102, 102));
-        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
+        tf_passlogin.setBackground(new java.awt.Color(102, 102, 102));
+        tf_passlogin.setForeground(new java.awt.Color(255, 255, 255));
 
-        jButton1.setBackground(new java.awt.Color(0, 102, 51));
-        jButton1.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Ingresar Sesion");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jb_ingresarsesion.setBackground(new java.awt.Color(0, 102, 51));
+        jb_ingresarsesion.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        jb_ingresarsesion.setForeground(new java.awt.Color(255, 255, 255));
+        jb_ingresarsesion.setText("Ingresar Sesion");
+        jb_ingresarsesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_ingresarsesionMouseClicked(evt);
+            }
+        });
+        jb_ingresarsesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jb_ingresarsesionActionPerformed(evt);
             }
         });
 
@@ -273,15 +345,15 @@ public class ExamenMain extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
-                            .addComponent(jTextField1)))
+                            .addComponent(tf_passlogin, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
+                            .addComponent(tf_unamelogin)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(293, 293, 293)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(235, 235, 235)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jb_ingresarsesion, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(119, Short.MAX_VALUE))
         );
@@ -293,13 +365,13 @@ public class ExamenMain extends javax.swing.JFrame {
                 .addGap(65, 65, 65)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tf_unamelogin, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tf_passlogin, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(67, 67, 67)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jb_ingresarsesion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(74, Short.MAX_VALUE))
@@ -319,9 +391,9 @@ public class ExamenMain extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jb_ingresarsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_ingresarsesionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jb_ingresarsesionActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -345,6 +417,14 @@ public class ExamenMain extends javax.swing.JFrame {
 
     private void jb_createaccMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_createaccMouseClicked
         try {
+            llenarartistas();
+            llenarclientes();
+            
+            ArrayList <Usuario> temp = new ArrayList();
+            
+            temp.addAll(artis);
+            temp.addAll(clientes);
+            
             
             String uname, cont, nomart;
             int age;
@@ -361,8 +441,26 @@ public class ExamenMain extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Lo siento usuario, debe ser mayor de 18 para ser artista.");
                 }
                 else{
-                    Artista x = new Artista(nomart, uname, cont, age);
-                    JOptionPane.showMessageDialog(null, "El artista ha sido creado exitosamente!");
+                    boolean existe = false;
+                    for (Usuario usuario : temp) {
+                        
+                        if (usuario.getUname().equals(tf_nombreu.getText())){
+                            JOptionPane.showMessageDialog(null, "Este nombre de usuario ya existe!!");
+                            existe = true;
+                        }
+                    }
+                    
+                    if (!existe){
+                        Artista artx = new Artista(nomart, uname, cont, age);
+                    
+                        AdminArtistas aa = new AdminArtistas("./artists.dfc");
+                        aa.cargarArchivo();
+                        aa.setArtista(artx);
+                        aa.escribirArchivo();
+
+                        JOptionPane.showMessageDialog(null, "El artista ha sido creado exitosamente!");
+                    }
+                    
                 }
             }
             else if (cb_tipusuario.getSelectedItem().toString().equals("Cliente")){
@@ -370,15 +468,34 @@ public class ExamenMain extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Lo siento usuario, debe ser mayor de 12 para ser cliente.");
                 }
                 else{
-                    Cliente y = new Cliente(uname, cont, age); 
-                    JOptionPane.showMessageDialog(null, "El cliente ha sido creado exitosamente!");
+                    boolean existe = false;
+                    for (Usuario usuario : temp) {
+                        
+                        if (usuario.getUname().equals(tf_nombreu.getText())){
+                            JOptionPane.showMessageDialog(null, "Este nombre de usuario ya existe!!");
+                            existe = true;
+                        }
+                    }
+                    
+                    if (!existe){
+                        
+                        Cliente y = new Cliente(uname, cont, age); 
+                    
+                        AdminClientes ac = new AdminClientes("./clients.dfc");
+                        ac.cargarArchivo();
+                        ac.setCliente(y);
+                        ac.escribirArchivo();
+                        
+                        JOptionPane.showMessageDialog(null, "El cliente ha sido creado exitosamente!");
+
+                    }
+ 
                 }
                 
                 
             }
             
-            
-            
+
             
         } catch (Exception e) {
             e.printStackTrace();
@@ -387,6 +504,39 @@ public class ExamenMain extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jb_createaccMouseClicked
+
+    private void jb_ingresarsesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_ingresarsesionMouseClicked
+        llenarartistas();
+        llenarclientes();
+        
+        boolean sepudoellogin = false;
+        
+        for (Artista arti : artis) {
+            
+            if (arti.getUname().equals(tf_unamelogin.getText()) && arti.getPassw().equals(tf_passlogin.getText())){
+                JOptionPane.showMessageDialog(null, "Usuario encontrado! Bienvenido Artista!");
+                sepudoellogin = true;
+            }
+
+        }
+        
+        for (Cliente clin : clientes) {
+            
+            if (clin.getUname().equals(tf_unamelogin.getText()) && clin.getPassw().equals(tf_passlogin.getText())){
+                JOptionPane.showMessageDialog(null, "Usuario encontrado! Bienvenido Cliente!");
+                sepudoellogin = true;
+            }
+            
+        }
+        
+        if (!sepudoellogin){
+            JOptionPane.showMessageDialog(null, "No se encontro un usuario con estas credenciales.");
+        }
+        
+        
+        
+        
+    }//GEN-LAST:event_jb_ingresarsesionMouseClicked
 
     /**
      * @param args the command line arguments
@@ -422,13 +572,36 @@ public class ExamenMain extends javax.swing.JFrame {
             }
         });
     }
+    
+    
+    public void llenarartistas(){
+        artis.clear();
+        AdminArtistas aa = new AdminArtistas("./artists.dfc");
+        aa.cargarArchivo();
+        artis.addAll(aa.getArtistas());
+    }
+    
+    public void llenarclientes(){
+        clientes.clear();
+        AdminClientes ac = new AdminClientes("./clients.dfc");
+        ac.cargarArchivo();
+        clientes.addAll(ac.getClientes());
+    }
+    
+    public void llenarListas(){
+        listasrep.clear();
+        AdminListaRep alr = new AdminListaRep("./listsrep.dfc");
+        alr.cargarArchivo();
+        listasrep.addAll(alr.getListasrep());
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog JD_crearcuenta;
+    private javax.swing.JDialog JD_mainArtists;
     private javax.swing.JComboBox<String> cb_tipusuario;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -440,13 +613,17 @@ public class ExamenMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton jb_createacc;
+    private javax.swing.JButton jb_ingresarsesion;
     private javax.swing.JPanel jp_specialartist;
     private javax.swing.JSpinner js_edad;
     private javax.swing.JTextField tf_contra;
     private javax.swing.JTextField tf_nomartistico;
     private javax.swing.JTextField tf_nombreu;
+    private javax.swing.JTextField tf_passlogin;
+    private javax.swing.JTextField tf_unamelogin;
     // End of variables declaration//GEN-END:variables
 }
