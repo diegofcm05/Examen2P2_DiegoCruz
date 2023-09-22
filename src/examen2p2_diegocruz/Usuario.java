@@ -4,13 +4,14 @@
  */
 package examen2p2_diegocruz;
 
+import java.io.Serializable;
+
 /**
  *
  * @author dfcm9
  */
-public class Usuario {
-    
-    
+public class Usuario implements Serializable{
+
     
     private String uname, passw;
     private int edad;

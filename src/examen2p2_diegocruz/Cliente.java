@@ -4,13 +4,14 @@
  */
 package examen2p2_diegocruz;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author dfcm9
  */
-public class Cliente extends Usuario{
+public class Cliente extends Usuario implements Serializable{
     
     private ArrayList <Cancion> favcanc = new ArrayList();
     private ArrayList <ListaRep> listascreadas = new ArrayList();

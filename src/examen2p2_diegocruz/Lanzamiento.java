@@ -8,16 +8,21 @@ package examen2p2_diegocruz;
  *
  * @author dfcm9
  */
-public class Cancion {
+public class Lanzamiento {
     
     private String titulo;
-    private double duracion;
-    private String reflanz;
+    private String fecha;
+    private int likes;
 
-    public Cancion(String titulo, double duracion, String reflanz) {
+    public Lanzamiento() {
+    }
+
+    
+    
+    public Lanzamiento(String titulo, String fecha, int likes) {
         this.titulo = titulo;
-        this.duracion = duracion;
-        this.reflanz = reflanz;
+        this.fecha = fecha;
+        this.likes = likes;
     }
     
     
@@ -30,25 +35,25 @@ public class Cancion {
         this.titulo = titulo;
     }
 
-    public double getDuracion() {
-        return duracion;
+    public String getFecha() {
+        return fecha;
     }
 
-    public void setDuracion(double duracion) {
-        this.duracion = duracion;
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 
-    public String getReflanz() {
-        return reflanz;
+    public int getLikes() {
+        return likes;
     }
 
-    public void setReflanz(String reflanz) {
-        this.reflanz = reflanz;
+    public void setLikes(int likes) {
+        this.likes = likes;
     }
 
     @Override
     public String toString() {
-        return "Cancion "+titulo;
+        return "Lanzamiento: "+titulo;
     }
     
     

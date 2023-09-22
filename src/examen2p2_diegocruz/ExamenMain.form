@@ -48,7 +48,7 @@
                                   <Component id="cb_tipusuario" min="-2" pref="218" max="-2" attributes="0"/>
                                   <Component id="jLabel11" alignment="0" min="-2" pref="165" max="-2" attributes="0"/>
                                   <Component id="tf_contra" alignment="0" min="-2" pref="256" max="-2" attributes="0"/>
-                                  <Component id="jButton3" min="-2" pref="198" max="-2" attributes="0"/>
+                                  <Component id="jb_createacc" min="-2" pref="198" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
@@ -94,7 +94,7 @@
                           <Component id="jp_specialartist" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                              <Component id="jButton3" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="jb_createacc" min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="104" max="32767" attributes="0"/>
@@ -291,7 +291,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton3">
+            <Component class="javax.swing.JButton" name="jb_createacc">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
@@ -304,6 +304,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Crear Cuenta"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jb_createaccMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

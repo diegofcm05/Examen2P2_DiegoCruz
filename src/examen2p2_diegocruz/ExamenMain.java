@@ -41,7 +41,7 @@ public class ExamenMain extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         tf_contra = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        jb_createacc = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -129,10 +129,15 @@ public class ExamenMain extends javax.swing.JFrame {
         tf_contra.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
         tf_contra.setForeground(new java.awt.Color(255, 255, 255));
 
-        jButton3.setBackground(new java.awt.Color(51, 51, 51));
-        jButton3.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 153, 0));
-        jButton3.setText("Crear Cuenta");
+        jb_createacc.setBackground(new java.awt.Color(51, 51, 51));
+        jb_createacc.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        jb_createacc.setForeground(new java.awt.Color(0, 153, 0));
+        jb_createacc.setText("Crear Cuenta");
+        jb_createacc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_createaccMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -157,7 +162,7 @@ public class ExamenMain extends javax.swing.JFrame {
                             .addComponent(cb_tipusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tf_contra, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jb_createacc, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(js_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -192,7 +197,7 @@ public class ExamenMain extends javax.swing.JFrame {
                     .addComponent(jp_specialartist, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(44, 44, 44)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jb_createacc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(104, Short.MAX_VALUE))
         );
 
@@ -335,6 +340,10 @@ public class ExamenMain extends javax.swing.JFrame {
         JD_crearcuenta.setVisible(true);
     }//GEN-LAST:event_jButton2MouseClicked
 
+    private void jb_createaccMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_createaccMouseClicked
+        
+    }//GEN-LAST:event_jb_createaccMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -375,7 +384,6 @@ public class ExamenMain extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_tipusuario;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
@@ -390,6 +398,7 @@ public class ExamenMain extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JButton jb_createacc;
     private javax.swing.JPanel jp_specialartist;
     private javax.swing.JSpinner js_edad;
     private javax.swing.JTextField tf_contra;

@@ -4,13 +4,17 @@
  */
 package examen2p2_diegocruz;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+
 /**
  *
  * @author dfcm9
  */
-public class Artista extends Usuario{
+public class Artista extends Usuario implements Serializable{
     
     private String nom_art;
+    private ArrayList <Cancion> can_subidas = new ArrayList();
 
     public Artista(String nom_art, String uname, String passw, int edad) {
         super(uname, passw, edad);
