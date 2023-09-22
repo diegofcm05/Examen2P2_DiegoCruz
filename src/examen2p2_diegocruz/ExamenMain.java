@@ -4,6 +4,8 @@
  */
 package examen2p2_diegocruz;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author dfcm9
@@ -213,6 +215,7 @@ public class ExamenMain extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -341,6 +344,47 @@ public class ExamenMain extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jb_createaccMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_createaccMouseClicked
+        try {
+            
+            String uname, cont, nomart;
+            int age;
+
+            uname = tf_nombreu.getText();
+            age = Integer.parseInt(js_edad.getValue().toString());
+            cont = tf_contra.getText();
+            nomart = tf_nomartistico.getText();
+
+            
+            if (cb_tipusuario.getSelectedItem().toString().equals("Artista")){
+                
+                if(age<18){
+                    JOptionPane.showMessageDialog(null, "Lo siento usuario, debe ser mayor de 18 para ser artista.");
+                }
+                else{
+                    Artista x = new Artista(nomart, uname, cont, age);
+                    JOptionPane.showMessageDialog(null, "El artista ha sido creado exitosamente!");
+                }
+            }
+            else if (cb_tipusuario.getSelectedItem().toString().equals("Cliente")){
+                if (age<12){
+                    JOptionPane.showMessageDialog(null, "Lo siento usuario, debe ser mayor de 12 para ser cliente.");
+                }
+                else{
+                    Cliente y = new Cliente(uname, cont, age); 
+                    JOptionPane.showMessageDialog(null, "El cliente ha sido creado exitosamente!");
+                }
+                
+                
+            }
+            
+            
+            
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        
         
     }//GEN-LAST:event_jb_createaccMouseClicked
 
