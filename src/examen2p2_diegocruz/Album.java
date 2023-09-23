@@ -21,6 +21,12 @@ public class Album extends Lanzamiento{
         this.cantidad = cantidad;
     }
 
+    public Album(String titulo, String fecha) {
+        super(titulo, fecha);
+    }
+    
+    
+
 
     public Album() {
         super();

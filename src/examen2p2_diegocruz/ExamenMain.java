@@ -11,7 +11,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 
 /**
@@ -103,6 +106,10 @@ public class ExamenMain extends javax.swing.JFrame {
         tf_nomcancalbum = new javax.swing.JTextField();
         tf_durcancalbum = new javax.swing.JTextField();
         jb_crearcanc_album = new javax.swing.JButton();
+        jDialog1 = new javax.swing.JDialog();
+        jPanel11 = new javax.swing.JPanel();
+        jLabel23 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         tf_unamelogin = new javax.swing.JTextField();
@@ -281,6 +288,11 @@ public class ExamenMain extends javax.swing.JFrame {
         jLabel10.setText("Bienvenido Artista!");
 
         jTabbedPane1.setForeground(new java.awt.Color(0, 153, 51));
+        jTabbedPane1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jTabbedPane1StateChanged(evt);
+            }
+        });
 
         jPanel4.setBackground(new java.awt.Color(102, 102, 102));
 
@@ -441,6 +453,10 @@ public class ExamenMain extends javax.swing.JFrame {
         jPanel7.setForeground(new java.awt.Color(102, 102, 102));
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Lanzamientos");
+        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Albumes");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Singles");
+        treeNode1.add(treeNode2);
         jt_lanzamientosartista.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jScrollPane1.setViewportView(jt_lanzamientosartista);
 
@@ -657,6 +673,46 @@ public class ExamenMain extends javax.swing.JFrame {
         JD_addcancionalbumLayout.setVerticalGroup(
             JD_addcancionalbumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel11.setBackground(new java.awt.Color(51, 153, 255));
+
+        jLabel23.setFont(new java.awt.Font("Bahnschrift", 0, 24)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel23.setText("Bienvenido Cliente!");
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 703, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(89, Short.MAX_VALUE))
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(48, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -893,6 +949,7 @@ public class ExamenMain extends javax.swing.JFrame {
             
             if (arti.getUname().equals(tf_unamelogin.getText()) && arti.getPassw().equals(tf_passlogin.getText())){
                 JOptionPane.showMessageDialog(null, "Usuario encontrado! Bienvenido Artista!");
+                System.out.println(arti);
                 artistalogeado = arti;
                 JD_mainArtists.pack();
                 JD_mainArtists.setModal(true);
@@ -1079,6 +1136,16 @@ public class ExamenMain extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jb_crearcanc_albumMouseClicked
 
+    private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
+        if (jTabbedPane1.getSelectedIndex()==4){
+            try {
+                llenarlanzamientos(artistalogeado);
+            } catch (Exception ex) {
+               ex.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_jTabbedPane1StateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -1141,6 +1208,13 @@ public class ExamenMain extends javax.swing.JFrame {
         FileReader fr = null;
         BufferedReader br = null;
         ArrayList<Lanzamiento> temp = new ArrayList();
+        DefaultTreeModel modelo = (DefaultTreeModel) jt_lanzamientosartista.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelo.getRoot();
+        System.out.println("Ninos"+x.getNom_art()+"hola1231");
+        ArrayList<Cancion> canstemp = recorrercanciones();
+        System.out.println(canstemp+"hola");
+        
+        System.out.println(canstemp);
         
         try {
             archi = new File("./lanzamientos.txt");
@@ -1154,34 +1228,111 @@ public class ExamenMain extends javax.swing.JFrame {
                     
                     String [] infosplit = linea.split(",");
                     
-                    String tipo = infosplit[0];
-                    String nomlanz = infosplit[1];
-                    String fechalanz = infosplit[2];
-                    String nomart = infosplit[3];
+                    String tipo = infosplit[0].trim();
+                    String nomlanz = infosplit[1].trim();
+                    String fechalanz = infosplit[2].trim();
+                    String nomart = infosplit[3].trim();
                     
-                    Lanzamiento ab = new Lanzamiento(nomlanz, fechalanz);
-                    
-                    if (nomart.trim().equals(artistalogeado.getNom_art().trim())){
-                        temp.add(ab);
+                    if (tipo.trim().equals("Single")){
+                        Single ab = new Single(nomlanz, fechalanz);
+                        if (nomart.equals(x.getUname())){
+                            for (int i = 0; i < raiz.getChildCount(); i++) {
+                                if (raiz.getChildAt(i).toString().equals("Singles")) {
+                                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(ab);
+                                    ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
+                                } 
+                                
+                            }
+                        }
+                        
                     }
-
+                    else if (tipo.trim().equals("Album")){
+                        Album df = new Album(nomlanz, fechalanz);
+                        for (Cancion cancion : canstemp) {
+                            if (cancion.getReflanz().equals(nomlanz)){
+                                df.getCanciones().add(cancion);
+                            }
+                            
+                        }
+                        if (nomart.equals(x.getUname())){
+                            for (int i = 0; i < raiz.getChildCount(); i++) {
+                                if (raiz.getChildAt(i).toString().equals("Albumes")) {
+                                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(df);
+                                    ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
+                                } 
+                                
+                            }
+                        }
+                        
+                    }
+                    
                 }
-                
-                
-                
-                
+
             }
             
-            DefaultTreeModel modelo = (DefaultTreeModel) jt_lanzamientosartista.getModel();
             
+            
+            
+            
+            
+        modelo.reload();   
         } catch (Exception e) {
         }
         
         
     }
     
-    public void recorrercanciones(){
+    public ArrayList<Cancion> recorrercanciones(){
         
+        
+        System.out.println("Hola Amigos");
+        ArrayList <Cancion> can= new ArrayList();
+        File archi = null;
+        FileReader fr = null;
+        BufferedReader br = null;
+        
+        try {
+            archi = new File("./canciones.txt");
+            fr = new FileReader(archi);
+            br = new BufferedReader(fr);
+            
+            if (archi.exists()) {
+                String linea = "";
+                
+                while ((linea = br.readLine()) != null) { 
+                    System.out.println(linea);
+                    String [] infosplit = linea.split(",");
+                    
+                    String nomcan = infosplit[0].trim();
+                    System.out.println(nomcan);
+                    
+                    String minssec = infosplit[1].trim();
+                    System.out.println(minssec);
+                    
+                    
+                    String referencia = infosplit[2].trim();
+                    System.out.println(referencia);
+                    
+                    String [] minssec2 = minssec.split(":");
+                    int minstosecs = Integer.parseInt(minssec2[0])*60;
+                    int secs = Integer.parseInt(minssec2[1]);
+                    
+                    int dur = minstosecs+secs;
+                    
+
+                    Cancion abc = new Cancion(nomcan, dur, referencia);
+                    can.add(abc);
+
+                }
+  
+            }
+            
+            
+        } catch (Exception e) {
+        }
+        
+        System.out.println(can);
+        return can;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1191,6 +1342,7 @@ public class ExamenMain extends javax.swing.JFrame {
     private javax.swing.JDialog JD_mainArtists;
     private javax.swing.JComboBox<String> cb_tipusuario;
     private javax.swing.JButton jButton2;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1206,6 +1358,7 @@ public class ExamenMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1215,6 +1368,7 @@ public class ExamenMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1224,6 +1378,7 @@ public class ExamenMain extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton jb_crearCancion;
     private javax.swing.JButton jb_crearSingle;
@@ -1280,11 +1435,7 @@ public class ExamenMain extends javax.swing.JFrame {
         for (int i = 0; i < raiz.getChildCount(); i++) {
             if (raiz.getChildAt(i).toString().
                     equals(nacionalidad)) {
-                DefaultMutableTreeNode p
-                        = new DefaultMutableTreeNode(
-                                new Persona(nombre,
-                                        edad, nacionalidad)
-                        );
+                DefaultMutableTreeNode p = new DefaultMutableTreeNode(new Persona(nombre, edad, nacionalidad));
                 ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
                 centinela = 1;
             } //fin if
@@ -1301,7 +1452,7 @@ public class ExamenMain extends javax.swing.JFrame {
             n.add(p);
             raiz.add(n);
         }  // fin if          
-        modeloARBOL.reload();
+        
         
     }
 
