@@ -11,10 +11,10 @@ package examen2p2_diegocruz;
 public class Cancion {
     
     private String titulo;
-    private double duracion;
+    private int duracion;
     private String reflanz;
 
-    public Cancion(String titulo, double duracion, String reflanz) {
+    public Cancion(String titulo, int duracion, String reflanz) {
         this.titulo = titulo;
         this.duracion = duracion;
         this.reflanz = reflanz;
@@ -30,14 +30,15 @@ public class Cancion {
         this.titulo = titulo;
     }
 
-    public double getDuracion() {
+    public int getDuracion() {
         return duracion;
     }
 
-    public void setDuracion(double duracion) {
+    public void setDuracion(int duracion) {
         this.duracion = duracion;
     }
 
+    
     public String getReflanz() {
         return reflanz;
     }
