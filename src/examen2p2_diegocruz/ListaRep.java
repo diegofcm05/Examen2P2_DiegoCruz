@@ -18,6 +18,12 @@ public class ListaRep implements Serializable{
     private int likes;
     private ArrayList <Cancion> canciones;
 
+    public ListaRep(String nombre) {
+        this.nombre = nombre;
+    }
+    
+    
+
     public ListaRep(String nombre, int likes, ArrayList<Cancion> canciones) {
         this.nombre = nombre;
         this.likes = likes;

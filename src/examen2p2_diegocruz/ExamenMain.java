@@ -129,6 +129,8 @@ public class ExamenMain extends javax.swing.JFrame {
         jb_reproducir = new javax.swing.JButton();
         jPanel16 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
+        tf_nomlista = new javax.swing.JTextField();
+        jb_agregarlista = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         tf_unamelogin = new javax.swing.JTextField();
@@ -849,23 +851,44 @@ public class ExamenMain extends javax.swing.JFrame {
 
         jtp_user.addTab("Reproducir Cancion", jPanel15);
 
-        jLabel26.setText("jLabel26");
+        jPanel16.setBackground(new java.awt.Color(0, 51, 102));
+
+        jLabel26.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel26.setText("Nombre de Lista:");
+
+        jb_agregarlista.setBackground(new java.awt.Color(0, 102, 153));
+        jb_agregarlista.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        jb_agregarlista.setForeground(new java.awt.Color(255, 255, 255));
+        jb_agregarlista.setText("Agregar Lista");
+        jb_agregarlista.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_agregarlistaMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
         jPanel16Layout.setHorizontalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel16Layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(372, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jb_agregarlista, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tf_nomlista, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(385, Short.MAX_VALUE))
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel16Layout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(267, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tf_nomlista, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
+                .addComponent(jb_agregarlista, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56))
         );
 
         jtp_user.addTab("Agregar Lista", jPanel16);
@@ -1388,6 +1411,21 @@ public class ExamenMain extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jb_reproducirMouseClicked
 
+    private void jb_agregarlistaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_agregarlistaMouseClicked
+        String nom_list = tf_nomlista.getText();
+        
+        ListaRep nrep = new ListaRep(nom_list);
+        
+        AdminListaRep alr = new AdminListaRep("./listasrep.dfc");
+        alr.cargarArchivo();
+        alr.setListaRep(nrep);
+        alr.escribirArchivo();
+        
+        JOptionPane.showMessageDialog(null, "La lista se ha agregado exitosamente!!");
+        
+        
+    }//GEN-LAST:event_jb_agregarlistaMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1633,6 +1671,7 @@ public class ExamenMain extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTree jTree1;
+    private javax.swing.JButton jb_agregarlista;
     private javax.swing.JButton jb_crearCancion;
     private javax.swing.JButton jb_crearSingle;
     private javax.swing.JButton jb_crearcanc_album;
@@ -1656,6 +1695,7 @@ public class ExamenMain extends javax.swing.JFrame {
     private javax.swing.JTextField tf_nombreu;
     private javax.swing.JTextField tf_nomcanc;
     private javax.swing.JTextField tf_nomcancalbum;
+    private javax.swing.JTextField tf_nomlista;
     private javax.swing.JTextField tf_passlogin;
     private javax.swing.JTextField tf_tituloalbum;
     private javax.swing.JTextField tf_titulosingle;
