@@ -123,11 +123,12 @@ public class ExamenMain extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         jPanel14 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
-        jProgressBar1 = new javax.swing.JProgressBar();
+        pb_cancion = new javax.swing.JProgressBar();
         cb_canarep = new javax.swing.JComboBox<>();
         jLabel25 = new javax.swing.JLabel();
         jb_reproducir = new javax.swing.JButton();
         jPanel16 = new javax.swing.JPanel();
+        jLabel26 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         tf_unamelogin = new javax.swing.JTextField();
@@ -809,6 +810,7 @@ public class ExamenMain extends javax.swing.JFrame {
         jLabel25.setForeground(new java.awt.Color(255, 255, 255));
         jLabel25.setText("Seleccione Cancion a Reproducir");
 
+        jb_reproducir.setBackground(new java.awt.Color(0, 102, 204));
         jb_reproducir.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
         jb_reproducir.setForeground(new java.awt.Color(255, 255, 255));
         jb_reproducir.setText("Reproducir Cancion");
@@ -828,7 +830,7 @@ public class ExamenMain extends javax.swing.JFrame {
                     .addComponent(jb_reproducir, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cb_canarep, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pb_cancion, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanel15Layout.setVerticalGroup(
@@ -841,21 +843,29 @@ public class ExamenMain extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
                 .addComponent(jb_reproducir, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
-                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pb_cancion, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34))
         );
 
         jtp_user.addTab("Reproducir Cancion", jPanel15);
 
+        jLabel26.setText("jLabel26");
+
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
         jPanel16Layout.setHorizontalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 688, Short.MAX_VALUE)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(372, Short.MAX_VALUE))
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 374, Short.MAX_VALUE)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addGap(71, 71, 71)
+                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(267, Short.MAX_VALUE))
         );
 
         jtp_user.addTab("Agregar Lista", jPanel16);
@@ -1360,6 +1370,21 @@ public class ExamenMain extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jb_reproducirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_reproducirMouseClicked
+        try {
+            
+            Cancion abc = (Cancion) cb_canarep.getSelectedItem();
+            int dur = abc.getDuracion();
+            ThreadCanc newrepro = new ThreadCanc(pb_cancion, dur);
+
+            newrepro.start();
+            
+            
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        
         
     }//GEN-LAST:event_jb_reproducirMouseClicked
 
@@ -1579,6 +1604,7 @@ public class ExamenMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1602,7 +1628,6 @@ public class ExamenMain extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1621,6 +1646,7 @@ public class ExamenMain extends javax.swing.JFrame {
     private javax.swing.JSpinner js_edad;
     private javax.swing.JTree jt_lanzamientosartista;
     private javax.swing.JTabbedPane jtp_user;
+    private javax.swing.JProgressBar pb_cancion;
     private javax.swing.JTextField tf_contra;
     private javax.swing.JTextField tf_duracioncanc;
     private javax.swing.JTextField tf_durcancalbum;

@@ -41,7 +41,8 @@ public class ThreadCanc extends Thread{
             
             pisci.setValue(pisci.getValue()+1);
             if (pisci.getValue()==duracion){
-                JOptionPane.showMessageDialog(null, "La cancion termino");
+                JOptionPane.showMessageDialog(null, "La cancion termino.");
+                vive = false;
             }
             try {
                 Thread.sleep(1000);
